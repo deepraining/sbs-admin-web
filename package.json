@@ -66,7 +66,7 @@
     "stylelint-config-standard": "^18.2.0",
     "svg-sprite-loader": "^4.2.5"
   },
-  "//lint-staged": {
+  "lint-staged": {
     "**/*.js": [
       "eslint --fix",
       "prettier --write",
@@ -84,12 +84,6 @@
       "git add"
     ],
     "**/*.{html,md,json}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "lint-staged": {
-    "**/*.{js,vue,css,less,scss,sass,html,md,json}": [
       "prettier --write",
       "git add"
     ]

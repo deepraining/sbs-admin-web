@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="app-container clearfix">
     <el-card class="filter-container" shadow="never">
       <div>
         <i class="el-icon-search" />
@@ -75,7 +75,7 @@
         </el-table-column>
         <el-table-column label="用户数" width="100" align="center">
           <template slot-scope="scope">
-            {{ scope.row.adminCount }}
+            {{ scope.row.userCount }}
           </template>
         </el-table-column>
         <el-table-column label="添加时间" width="160" align="center">
@@ -199,7 +199,7 @@ const defaultRole = {
   id: null,
   name: null,
   description: null,
-  adminCount: 0,
+  userCount: 0,
   status: 1,
 };
 export default {

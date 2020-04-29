@@ -3,7 +3,7 @@ export default {
   message: '操作成功',
   data: {
     roles: ['TEST'],
-    icon: '/images/logo.png',
+    avatar: '/images/avatar.jpg',
     menus: [
       {
         id: 1,

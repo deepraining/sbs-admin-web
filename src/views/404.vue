@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="app-container">
+    <div class="app-container clearfix">
       <el-col :span="12">
         <img :src="img_404" alt="404" class="img-style" />
       </el-col>

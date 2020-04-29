@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="app-container clearfix">
     <div class="table-layout">
       <el-row>
         <el-col :span="4" class="table-cell-title">

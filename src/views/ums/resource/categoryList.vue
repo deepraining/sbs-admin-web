@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="app-container clearfix">
     <el-card shadow="never" class="operate-container">
       <i class="el-icon-tickets" />
       <span>数据列表</span>

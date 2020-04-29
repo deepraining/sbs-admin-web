@@ -61,7 +61,7 @@
             type="primary"
             @click.native.prevent="handleTry"
           >
-            获取体验账号
+            关注原作者
           </el-button>
         </el-form-item>
       </el-form>
@@ -76,10 +76,7 @@
     >
       <div style="text-align: center">
         <span class="font-title-large"
-          ><span class="color-main font-extra-large">关注公众号</span>回复<span
-            class="color-main font-extra-large"
-            >体验</span
-          >获取体验账号</span
+          ><span class="color-main font-extra-large">关注公众号</span></span
         >
         <br />
         <img

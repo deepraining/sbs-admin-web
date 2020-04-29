@@ -32,4 +32,16 @@ module.exports = {
       },
     },
   ],
+  rules: {
+    'import/no-unresolved': 0,
+    'import/prefer-default-export': 0,
+    'import/extensions': 0,
+    'import/order': 0,
+    'no-param-reassign': 0,
+    'no-use-before-define': 0,
+    'no-unused-vars': 0,
+    radix: 0,
+    'prefer-promise-reject-errors': 0,
+    'no-plusplus': 0,
+  },
 };

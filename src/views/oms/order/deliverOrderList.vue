@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="app-container clearfix">
     <el-card class="operate-container" shadow="never">
       <i class="el-icon-tickets" />
       <span>发货列表</span>

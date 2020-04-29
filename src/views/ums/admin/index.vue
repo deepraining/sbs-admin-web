@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="app-container clearfix">
     <el-card class="filter-container" shadow="never">
       <div>
         <i class="el-icon-search" />
@@ -70,7 +70,7 @@
         </el-table-column>
         <el-table-column label="姓名" align="center">
           <template slot-scope="scope">
-            {{ scope.row.nickName }}
+            {{ scope.row.nickname }}
           </template>
         </el-table-column>
         <el-table-column label="邮箱" align="center">
@@ -85,7 +85,7 @@
         </el-table-column>
         <el-table-column label="最后登录" width="160" align="center">
           <template slot-scope="scope">
-            {{ scope.row.loginTime | formatDateTime }}
+            {{ scope.row.lastLoginTime | formatDateTime }}
           </template>
         </el-table-column>
         <el-table-column label="是否启用" width="140" align="center">
@@ -147,7 +147,7 @@
           <el-input v-model="admin.username" style="width: 250px" />
         </el-form-item>
         <el-form-item label="姓名：">
-          <el-input v-model="admin.nickName" style="width: 250px" />
+          <el-input v-model="admin.nickname" style="width: 250px" />
         </el-form-item>
         <el-form-item label="邮箱：">
           <el-input v-model="admin.email" style="width: 250px" />
@@ -236,7 +236,7 @@ const defaultAdmin = {
   id: null,
   username: null,
   password: null,
-  nickName: null,
+  nickname: null,
   email: null,
   note: null,
   status: 1,
@@ -369,7 +369,7 @@ export default {
         type: 'warning',
       }).then(() => {
         const params = new URLSearchParams();
-        params.append('adminId', this.allocAdminId);
+        params.append('userId', this.allocAdminId);
         params.append('roleIds', this.allocRoleIds);
         allocRole(params).then(response => {
           this.$message({
@@ -398,8 +398,8 @@ export default {
         this.allRoleList = response.data;
       });
     },
-    getRoleListByAdmin(adminId) {
-      getRoleByAdmin(adminId).then(response => {
+    getRoleListByAdmin(userId) {
+      getRoleByAdmin(userId).then(response => {
         const allocRoleList = response.data;
         this.allocRoleIds = [];
         if (allocRoleList != null && allocRoleList.length > 0) {

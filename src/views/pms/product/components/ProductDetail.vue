@@ -175,7 +175,7 @@ export default {
               message: '提交成功',
               duration: 1000,
             });
-            location.reload();
+            window.location.reload();
           });
         }
       });
