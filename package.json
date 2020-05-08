@@ -35,6 +35,7 @@
     "test-cover": "jest --coverage",
     "coverage": "npm run test-cover && opn coverage/lcov-report/index.html",
     "dev": "lila dev",
+    "dev:disk": "lila dev --disk",
     "build": "lila build"
   },
   "devDependencies": {
