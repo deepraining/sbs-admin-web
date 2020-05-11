@@ -103,7 +103,12 @@
 </template>
 
 <script>
-import { fetchList, deleteMenu, updateMenu, updateHidden } from '@/api/menu';
+import {
+  fetchList,
+  deleteMenu,
+  updateMenu,
+  updateHidden,
+} from '@/api/adminMenu';
 
 export default {
   name: 'MenuList',

@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import { fetchTreeList } from '@/api/menu';
-import { listMenuByRole, allocMenu } from '@/api/role';
+import { fetchTreeList } from '@/api/adminMenu';
+import { listMenuByRole, allocMenu } from '@/api/adminRole';
 
 export default {
   name: 'AllocMenu',

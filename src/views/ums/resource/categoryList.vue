@@ -84,7 +84,7 @@ import {
   createResourceCategory,
   updateResourceCategory,
   deleteResourceCategory,
-} from '@/api/resourceCategory';
+} from '@/api/adminResourceCategory';
 import { formatDate } from '@/utils/date';
 
 const defaultResourceCategory = {

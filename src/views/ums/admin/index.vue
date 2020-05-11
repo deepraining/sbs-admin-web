@@ -223,8 +223,8 @@ import {
   deleteAdmin,
   getRoleByAdmin,
   allocRole,
-} from '@/api/login';
-import { fetchAllRoleList } from '@/api/role';
+} from '@/api/adminLogin';
+import { fetchAllRoleList } from '@/api/adminRole';
 import { formatDate } from '@/utils/date';
 
 const defaultListQuery = {

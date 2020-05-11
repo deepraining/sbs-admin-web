@@ -56,7 +56,7 @@
     "lila-bin": "^0.8.1",
     "lila-core": "^0.8.1",
     "lila-tasks": "^0.8.1",
-    "lila-webpack": "^0.8.1",
+    "lila-webpack": "^0.8.2",
     "lila-webpack-config": "^0.8.1",
     "lint-staged": "^8.1.0",
     "moment-locales-webpack-plugin": "^1.0.7",

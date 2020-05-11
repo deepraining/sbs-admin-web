@@ -197,8 +197,8 @@ import {
   createResource,
   updateResource,
   deleteResource,
-} from '@/api/resource';
-import { listAllCate } from '@/api/resourceCategory';
+} from '@/api/adminResource';
+import { listAllCate } from '@/api/adminResourceCategory';
 import { formatDate } from '@/utils/date';
 
 const defaultListQuery = {

@@ -187,7 +187,7 @@ import {
   updateRole,
   updateStatus,
   deleteRole,
-} from '@/api/role';
+} from '@/api/adminRole';
 import { formatDate } from '@/utils/date';
 
 const defaultListQuery = {

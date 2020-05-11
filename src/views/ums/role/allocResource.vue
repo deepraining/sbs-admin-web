@@ -42,9 +42,9 @@
 </template>
 
 <script>
-import { fetchAllResourceList } from '@/api/resource';
-import { listAllCate } from '@/api/resourceCategory';
-import { allocResource, listResourceByRole } from '@/api/role';
+import { fetchAllResourceList } from '@/api/adminResource';
+import { listAllCate } from '@/api/adminResourceCategory';
+import { allocResource, listResourceByRole } from '@/api/adminRole';
 
 export default {
   name: 'AllocResource',
