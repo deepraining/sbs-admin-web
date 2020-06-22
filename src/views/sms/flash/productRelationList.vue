@@ -93,7 +93,7 @@
         layout="total, sizes,prev, pager, next,jumper"
         :current-page.sync="listQuery.pageNum"
         :page-size="listQuery.pageSize"
-        :page-sizes="[5, 10, 15]"
+        :page-sizes="[10, 20, 50]"
         :total="total"
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
@@ -136,7 +136,7 @@
           layout="prev, pager, next"
           :current-page.sync="dialogData.listQuery.pageNum"
           :page-size="dialogData.listQuery.pageSize"
-          :page-sizes="[5, 10, 15]"
+          :page-sizes="[10, 20, 50]"
           :total="dialogData.total"
           @size-change="handleDialogSizeChange"
           @current-change="handleDialogCurrentChange"
@@ -230,7 +230,7 @@ import { fetchList as fetchProductList } from '@/api/product';
 
 const defaultListQuery = {
   pageNum: 1,
-  pageSize: 5,
+  pageSize: 10,
   flashPromotionId: null,
   flashPromotionSessionId: null,
 };
@@ -251,7 +251,7 @@ export default {
         listQuery: {
           keyword: null,
           pageNum: 1,
-          pageSize: 5,
+          pageSize: 10,
         },
       },
       editDialogVisible: false,

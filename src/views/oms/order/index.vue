@@ -218,7 +218,7 @@
         layout="total, sizes,prev, pager, next,jumper"
         :current-page.sync="listQuery.pageNum"
         :page-size="listQuery.pageSize"
-        :page-sizes="[5, 10, 15]"
+        :page-sizes="[10, 20, 50]"
         :total="total"
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"

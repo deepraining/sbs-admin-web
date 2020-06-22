@@ -150,7 +150,7 @@
         background
         layout="total, sizes,prev, pager, next,jumper"
         :page-size="listQuery.pageSize"
-        :page-sizes="[5, 10, 15]"
+        :page-sizes="[10, 20, 50]"
         :current-page.sync="listQuery.pageNum"
         :total="total"
         @size-change="handleSizeChange"

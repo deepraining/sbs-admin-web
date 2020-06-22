@@ -145,7 +145,7 @@
         background
         layout="total, sizes,prev, pager, next,jumper"
         :page-size="listQuery.pageSize"
-        :page-sizes="[5, 10, 15]"
+        :page-sizes="[10, 20, 50]"
         :current-page.sync="listQuery.pageNum"
         :total="total"
         @size-change="handleSizeChange"
@@ -191,7 +191,7 @@
           layout="prev, pager, next"
           :current-page.sync="dialogData.listQuery.pageNum"
           :page-size="dialogData.listQuery.pageSize"
-          :page-sizes="[5, 10, 15]"
+          :page-sizes="[10, 20, 50]"
           :total="dialogData.total"
           @size-change="handleDialogSizeChange"
           @current-change="handleDialogCurrentChange"
@@ -240,7 +240,7 @@ import { fetchList as fetchBrandList } from '@/api/brand';
 
 const defaultListQuery = {
   pageNum: 1,
-  pageSize: 5,
+  pageSize: 10,
   brandName: null,
   recommendStatus: null,
 };
@@ -295,7 +295,7 @@ export default {
         listQuery: {
           keyword: null,
           pageNum: 1,
-          pageSize: 5,
+          pageSize: 10,
         },
       },
       sortDialogVisible: false,
