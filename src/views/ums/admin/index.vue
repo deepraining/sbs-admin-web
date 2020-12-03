@@ -144,7 +144,11 @@
     >
       <el-form ref="adminForm" :model="admin" label-width="150px" size="small">
         <el-form-item label="帐号：">
-          <el-input v-model="admin.username" style="width: 250px" />
+          <el-input
+            v-model="admin.username"
+            style="width: 250px"
+            :disabled="isEdit"
+          />
         </el-form-item>
         <el-form-item label="姓名：">
           <el-input v-model="admin.nickname" style="width: 250px" />
@@ -166,16 +170,6 @@
             :rows="5"
             style="width: 250px"
           />
-        </el-form-item>
-        <el-form-item label="是否启用：">
-          <el-radio-group v-model="admin.status">
-            <el-radio :label="1">
-              是
-            </el-radio>
-            <el-radio :label="0">
-              否
-            </el-radio>
-          </el-radio-group>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
@@ -239,7 +233,6 @@ const defaultAdmin = {
   nickname: null,
   email: null,
   note: null,
-  status: 1,
 };
 export default {
   name: 'AdminList',
