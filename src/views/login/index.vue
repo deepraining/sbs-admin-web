@@ -95,7 +95,7 @@
 
 <script>
 import { isvalidUsername } from '@/utils/validate';
-import { setSupport, getSupport, setCookie, getCookie } from '@/utils/support';
+import { setSupport, getSupport } from '@/utils/support';
 import login_center_bg from '@/assets/images/login_center_bg.png';
 
 export default {
@@ -135,23 +135,6 @@ export default {
       supportDialogVisible: false,
     };
   },
-  created() {
-    this.loginForm.username = getCookie('username');
-    this.loginForm.password = getCookie('password');
-    if (
-      this.loginForm.username === undefined ||
-      this.loginForm.username == null ||
-      this.loginForm.username === ''
-    ) {
-      this.loginForm.username = 'admin';
-    }
-    if (
-      this.loginForm.password === undefined ||
-      this.loginForm.password == null
-    ) {
-      this.loginForm.password = '';
-    }
-  },
   methods: {
     showPwd() {
       if (this.pwdType === 'password') {
@@ -173,8 +156,6 @@ export default {
             .dispatch('Login', this.loginForm)
             .then(() => {
               this.loading = false;
-              setCookie('username', this.loginForm.username, 15);
-              setCookie('password', this.loginForm.password, 15);
               this.$router.push({ path: '/' });
             })
             .catch(() => {
