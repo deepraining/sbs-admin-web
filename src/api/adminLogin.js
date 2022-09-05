@@ -1,4 +1,5 @@
-import request from '@/utils/request';
+import request from '../utils/request';
+import { convertMapToParams } from '../utils';
 
 export function login(username, password) {
   return request({
@@ -53,7 +54,7 @@ export function updateStatus(id, params) {
   return request({
     url: `/admin/updateStatus/${id}`,
     method: 'post',
-    params,
+    params: convertMapToParams(params),
   });
 }
 

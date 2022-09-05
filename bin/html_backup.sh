@@ -6,7 +6,7 @@
 # 存放 html 文件的目录名
 DIR='html'
 # 存放备份文件的目录名
-BAK_DIR='html-bak'
+BAK_DIR='bak_html'
 
 VERSION=`date +'%Y.%m%d.%H%M'`
 

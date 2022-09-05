@@ -1,4 +1,4 @@
-export function isvalidUsername(str) {
+export function isValidUsername(str) {
   // const valid_map = ['admin', 'test']
   // return valid_map.indexOf(str.trim()) >= 0
   return str.trim().length >= 3;
@@ -23,7 +23,7 @@ export function validateUpperCase(str) {
 }
 
 /* 大小写字母 */
-export function validatAlphabets(str) {
+export function validateAlphabets(str) {
   const reg = /^[A-Za-z]+$/;
   return reg.test(str);
 }

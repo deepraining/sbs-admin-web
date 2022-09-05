@@ -10,10 +10,10 @@
       :props="defaultProps"
     />
     <div style="margin-top: 20px" align="center">
-      <el-button type="primary" @click="handleSave()">
+      <el-button type="primary" @click="handleSave">
         保存
       </el-button>
-      <el-button @click="handleClear()">
+      <el-button @click="handleClear">
         清空
       </el-button>
     </div>
@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import { fetchTreeList } from '@/api/adminMenu';
-import { listMenuByRole, allocMenu } from '@/api/adminRole';
+import { fetchTreeList } from '../../../api/adminMenu';
+import { listMenuByRole, allocMenu } from '../../../api/adminRole';
 
 export default {
   name: 'AllocMenu',

@@ -3,18 +3,12 @@
     <el-card class="operate-container" shadow="never">
       <i class="el-icon-tickets" style="margin-top: 5px" />
       <span style="margin-top: 5px">数据列表</span>
-      <el-button class="btn-add" size="mini" @click="handleAddMenu()">
+      <el-button class="btn-add" size="mini" @click="handleAddMenu">
         添加
       </el-button>
     </el-card>
     <div class="table-container">
-      <el-table
-        ref="menuTable"
-        v-loading="listLoading"
-        style="width: 100%"
-        :data="list"
-        border
-      >
+      <el-table ref="menuTable" v-loading="listLoading" style="width: 100%" :data="list">
         <el-table-column label="编号" width="100" align="center">
           <template slot-scope="scope">
             {{ scope.row.id }}
@@ -69,18 +63,10 @@
         </el-table-column>
         <el-table-column label="操作" width="200" align="center">
           <template slot-scope="scope">
-            <el-button
-              size="mini"
-              type="text"
-              @click="handleUpdate(scope.$index, scope.row)"
-            >
+            <el-button size="mini" type="text" @click="handleUpdate(scope.$index, scope.row)">
               编辑
             </el-button>
-            <el-button
-              size="mini"
-              type="text"
-              @click="handleDelete(scope.$index, scope.row)"
-            >
+            <el-button size="mini" type="text" @click="handleDelete(scope.$index, scope.row)">
               删除
             </el-button>
           </template>
@@ -103,12 +89,7 @@
 </template>
 
 <script>
-import {
-  fetchList,
-  deleteMenu,
-  updateMenu,
-  updateHidden,
-} from '@/api/adminMenu';
+import { fetchList, deleteMenu, updateMenu, updateHidden } from '../../../api/adminMenu';
 
 export default {
   name: 'MenuList',

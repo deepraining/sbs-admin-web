@@ -15,12 +15,7 @@
           <div style="color:#909399;font-size: 14px">
             请检查您输入的网址是否正确，请点击以下按钮返回主页或者发送错误报告
           </div>
-          <el-button
-            style="margin-top: 20px"
-            type="primary"
-            round
-            @click="handleGoMain"
-          >
+          <el-button style="margin-top: 20px" type="primary" round @click="handleGoMain">
             返回首页
           </el-button>
         </div>
@@ -30,7 +25,7 @@
 </template>
 
 <script>
-import img_404 from '@/assets/images/gif_404.gif';
+import img_404 from '../assets/images/gif_404.gif';
 
 export default {
   name: 'WrongPage',

@@ -1,4 +1,5 @@
-import request from '@/utils/request';
+import request from '../utils/request';
+import { convertMapToParams } from '../utils';
 
 export function fetchList(parentId, params) {
   return request({
@@ -42,7 +43,7 @@ export function updateHidden(id, params) {
   return request({
     url: `/adminMenu/updateHidden/${id}`,
     method: 'post',
-    params,
+    params: convertMapToParams(params),
   });
 }
 

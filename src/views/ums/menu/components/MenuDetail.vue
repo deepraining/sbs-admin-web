@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { fetchList, createMenu, updateMenu, getMenu } from '@/api/adminMenu';
+import { fetchList, createMenu, updateMenu, getMenu } from '../../../../api/adminMenu';
 
 const defaultMenu = {
   title: '',

@@ -4,29 +4,15 @@
       <div>
         <i class="el-icon-search" />
         <span>筛选搜索</span>
-        <el-button
-          style="float:right"
-          type="primary"
-          size="small"
-          @click="handleSearchList()"
-        >
+        <el-button style="float:right" type="primary" size="small" @click="handleSearchList">
           查询搜索
         </el-button>
-        <el-button
-          style="float:right;margin-right: 15px"
-          size="small"
-          @click="handleResetSearch()"
-        >
+        <el-button style="float:right;margin-right: 15px" size="small" @click="handleResetSearch">
           重置
         </el-button>
       </div>
       <div style="margin-top: 15px">
-        <el-form
-          :inline="true"
-          :model="listQuery"
-          size="small"
-          label-width="140px"
-        >
+        <el-form :inline="true" :model="listQuery" size="small" label-width="140px">
           <el-form-item label="输入搜索：">
             <el-input
               v-model="listQuery.keyword"
@@ -35,29 +21,21 @@
               clearable
             />
           </el-form-item>
+
+          <!-- 只有一个input时，按回车键会刷新页面 -->
+          <el-input style="display: none" />
         </el-form>
       </div>
     </el-card>
     <el-card class="operate-container" shadow="never">
       <i class="el-icon-tickets" />
       <span>数据列表</span>
-      <el-button
-        size="mini"
-        class="btn-add"
-        style="margin-left: 20px"
-        @click="handleAdd()"
-      >
+      <el-button size="mini" class="btn-add" style="margin-left: 20px" @click="handleAdd">
         添加
       </el-button>
     </el-card>
     <div class="table-container">
-      <el-table
-        ref="adminTable"
-        v-loading="listLoading"
-        :data="list"
-        style="width: 100%;"
-        border
-      >
+      <el-table ref="adminTable" v-loading="listLoading" :data="list" style="width: 100%;">
         <el-table-column label="编号" width="100" align="center">
           <template slot-scope="scope">
             {{ scope.row.id }}
@@ -100,25 +78,13 @@
         </el-table-column>
         <el-table-column label="操作" width="180" align="center">
           <template slot-scope="scope">
-            <el-button
-              size="mini"
-              type="text"
-              @click="handleSelectRole(scope.$index, scope.row)"
-            >
+            <el-button size="mini" type="text" @click="handleSelectRole(scope.$index, scope.row)">
               分配角色
             </el-button>
-            <el-button
-              size="mini"
-              type="text"
-              @click="handleUpdate(scope.$index, scope.row)"
-            >
+            <el-button size="mini" type="text" @click="handleUpdate(scope.$index, scope.row)">
               编辑
             </el-button>
-            <el-button
-              size="mini"
-              type="text"
-              @click="handleDelete(scope.$index, scope.row)"
-            >
+            <el-button size="mini" type="text" @click="handleDelete(scope.$index, scope.row)">
               删除
             </el-button>
           </template>
@@ -137,18 +103,10 @@
         @current-change="handleCurrentChange"
       />
     </div>
-    <el-dialog
-      :title="isEdit ? '编辑用户' : '添加用户'"
-      :visible.sync="dialogVisible"
-      width="40%"
-    >
+    <el-dialog :title="isEdit ? '编辑用户' : '添加用户'" :visible.sync="dialogVisible" width="40%">
       <el-form ref="adminForm" :model="admin" label-width="150px" size="small">
         <el-form-item label="帐号：">
-          <el-input
-            v-model="admin.username"
-            style="width: 250px"
-            :disabled="isEdit"
-          />
+          <el-input v-model="admin.username" style="width: 250px" :disabled="isEdit" />
         </el-form-item>
         <el-form-item label="姓名：">
           <el-input v-model="admin.nickname" style="width: 250px" />
@@ -157,26 +115,15 @@
           <el-input v-model="admin.email" style="width: 250px" />
         </el-form-item>
         <el-form-item label="密码：">
-          <el-input
-            v-model="admin.password"
-            type="password"
-            style="width: 250px"
-          />
+          <el-input v-model="admin.password" type="password" style="width: 250px" />
         </el-form-item>
         <el-form-item label="备注：">
-          <el-input
-            v-model="admin.note"
-            type="textarea"
-            :rows="5"
-            style="width: 250px"
-          />
+          <el-input v-model="admin.note" type="textarea" :rows="5" style="width: 250px" />
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button size="small" @click="dialogVisible = false">取 消</el-button>
-        <el-button type="primary" size="small" @click="handleDialogConfirm()"
-          >确 定</el-button
-        >
+        <el-button type="primary" size="small" @click="handleDialogConfirm">确 定</el-button>
       </span>
     </el-dialog>
     <el-dialog title="分配角色" :visible.sync="allocDialogVisible" width="30%">
@@ -187,23 +134,11 @@
         size="small"
         style="width: 80%"
       >
-        <el-option
-          v-for="item in allRoleList"
-          :key="item.id"
-          :label="item.name"
-          :value="item.id"
-        />
+        <el-option v-for="item in allRoleList" :key="item.id" :label="item.name" :value="item.id" />
       </el-select>
       <span slot="footer" class="dialog-footer">
-        <el-button size="small" @click="allocDialogVisible = false"
-          >取 消</el-button
-        >
-        <el-button
-          type="primary"
-          size="small"
-          @click="handleAllocDialogConfirm()"
-          >确 定</el-button
-        >
+        <el-button size="small" @click="allocDialogVisible = false">取 消</el-button>
+        <el-button type="primary" size="small" @click="handleAllocDialogConfirm">确 定</el-button>
       </span>
     </el-dialog>
   </div>
@@ -217,9 +152,9 @@ import {
   deleteAdmin,
   getRoleByAdmin,
   allocRole,
-} from '@/api/adminLogin';
-import { fetchAllRoleList } from '@/api/adminRole';
-import { formatDate } from '@/utils/date';
+} from '../../../api/adminLogin';
+import { fetchAllRoleList } from '../../../api/adminRole';
+import { formatDate } from '../../../utils/date';
 
 const defaultListQuery = {
   pageNum: 1,

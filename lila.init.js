@@ -17,17 +17,7 @@ export default lila => {
         '@': path.join(__dirname, 'src'),
         vue$: 'vue/dist/vue.esm.js',
       },
-      extensions: [
-        'jpg',
-        'jpeg',
-        'png',
-        'gif',
-        'ico',
-        'eot',
-        'ttf',
-        'woff',
-        'woff2',
-      ],
+      extensions: ['jpg', 'jpeg', 'png', 'gif', 'ico', 'eot', 'ttf', 'woff', 'woff2'],
       rules: [
         {
           test: /\.svg$/,

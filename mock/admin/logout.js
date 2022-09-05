@@ -1,4 +1,4 @@
 export default {
-  code: 200,
+  code: 0,
   message: '操作成功',
 };

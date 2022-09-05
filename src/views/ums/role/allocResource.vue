@@ -21,20 +21,17 @@
           :span="8"
           style="padding: 4px 0"
         >
-          <el-checkbox
-            v-model="resource.checked"
-            @change="handleCheckChange(resource)"
-          >
+          <el-checkbox v-model="resource.checked" @change="handleCheckChange(resource)">
             {{ resource.name }}
           </el-checkbox>
         </el-col>
       </el-row>
     </div>
     <div style="margin-top: 20px" align="center">
-      <el-button type="primary" @click="handleSave()">
+      <el-button type="primary" @click="handleSave">
         保存
       </el-button>
-      <el-button @click="handleClear()">
+      <el-button @click="handleClear">
         清空
       </el-button>
     </div>
@@ -42,9 +39,9 @@
 </template>
 
 <script>
-import { fetchAllResourceList } from '@/api/adminResource';
-import { listAllCate } from '@/api/adminResourceCategory';
-import { allocResource, listResourceByRole } from '@/api/adminRole';
+import { fetchAllResourceList } from '../../../api/adminResource';
+import { listAllCate } from '../../../api/adminResourceCategory';
+import { allocResource, listResourceByRole } from '../../../api/adminRole';
 
 export default {
   name: 'AllocResource',

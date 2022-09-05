@@ -1,4 +1,5 @@
-import request from '@/utils/request';
+import request from '../utils/request';
+import { convertMapToParams } from '../utils';
 
 export function fetchList(params) {
   return request({
@@ -28,7 +29,7 @@ export function updateStatus(id, params) {
   return request({
     url: `/adminRole/updateStatus/${id}`,
     method: 'post',
-    params,
+    params: convertMapToParams(params),
   });
 }
 

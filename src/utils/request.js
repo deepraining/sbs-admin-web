@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Message, MessageBox } from 'element-ui';
-import { getToken } from '@/utils/auth';
+import { getToken } from './auth';
 import store from '../store';
 
 // 创建axios实例
@@ -19,7 +19,7 @@ service.interceptors.request.use(
   },
   error => {
     // Do something with request error
-    console.log(error); // for debug
+    console.error(error); // for debug
     Promise.reject(error);
   }
 );
@@ -28,27 +28,24 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     /**
-     * code为非200是抛错 可结合自己业务进行修改
+     * code为非0是抛错 可结合自己业务进行修改
+     * 0:操作成功, 1:操作失败, 2:参数检验失败, 3:未登录或 token 已经过期, 4:没有相关权限
      */
     const res = response.data;
-    if (res.code !== 200) {
+    if (res.code !== 0) {
       Message({
         message: res.message,
         type: 'error',
         duration: 3 * 1000,
       });
 
-      // 401:未登录;
-      if (res.code === 401) {
-        MessageBox.confirm(
-          '你已被登出，可以取消继续留在该页面，或者重新登录',
-          '确定登出',
-          {
-            confirmButtonText: '重新登录',
-            cancelButtonText: '取消',
-            type: 'warning',
-          }
-        ).then(() => {
+      // 未登录或 token 已经过期
+      if (res.code === 3) {
+        MessageBox.confirm('你已被登出，可以取消继续留在该页面，或者重新登录', '确定登出', {
+          confirmButtonText: '重新登录',
+          cancelButtonText: '取消',
+          type: 'warning',
+        }).then(() => {
           store.dispatch('FedLogOut').then(() => {
             window.location.reload(); // 为了重新实例化vue-router对象 避免bug
           });
@@ -59,7 +56,7 @@ service.interceptors.response.use(
     return response.data;
   },
   error => {
-    console.log(`err${error}`); // for debug
+    console.error(error); // for debug
     Message({
       message: error.message,
       type: 'error',

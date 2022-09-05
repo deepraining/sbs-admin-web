@@ -3,9 +3,7 @@
     <template v-for="item in routes" v-if="!item.hidden && item.children">
       <router-link
         v-if="
-          hasOneShowingChildren(item.children) &&
-            !item.children[0].children &&
-            !item.alwaysShow
+          hasOneShowingChildren(item.children) && !item.children[0].children && !item.alwaysShow
         "
         :key="item.children[0].name"
         :to="item.path + '/' + item.children[0].path"
@@ -18,23 +16,16 @@
             v-if="item.children[0].meta && item.children[0].meta.icon"
             :icon-class="item.children[0].meta.icon"
           />
-          <span
-            v-if="item.children[0].meta && item.children[0].meta.title"
-            slot="title"
-            >{{ item.children[0].meta.title }}</span
-          >
+          <span v-if="item.children[0].meta && item.children[0].meta.title" slot="title">{{
+            item.children[0].meta.title
+          }}</span>
         </el-menu-item>
       </router-link>
 
       <el-submenu v-else :key="item.name" :index="item.name || item.path">
         <template slot="title">
-          <svg-icon
-            v-if="item.meta && item.meta.icon"
-            :icon-class="item.meta.icon"
-          />
-          <span v-if="item.meta && item.meta.title" slot="title">{{
-            item.meta.title
-          }}</span>
+          <svg-icon v-if="item.meta && item.meta.icon" :icon-class="item.meta.icon" />
+          <span v-if="item.meta && item.meta.title" slot="title">{{ item.meta.title }}</span>
         </template>
 
         <template v-for="child in item.children" v-if="!child.hidden">
@@ -46,19 +37,10 @@
             :routes="[child]"
           />
 
-          <router-link
-            v-else
-            :key="child.name"
-            :to="item.path + '/' + child.path"
-          >
+          <router-link v-else :key="child.name" :to="item.path + '/' + child.path">
             <el-menu-item :index="item.path + '/' + child.path">
-              <svg-icon
-                v-if="child.meta && child.meta.icon"
-                :icon-class="child.meta.icon"
-              />
-              <span v-if="child.meta && child.meta.title" slot="title">{{
-                child.meta.title
-              }}</span>
+              <svg-icon v-if="child.meta && child.meta.icon" :icon-class="child.meta.icon" />
+              <span v-if="child.meta && child.meta.title" slot="title">{{ child.meta.title }}</span>
             </el-menu-item>
           </router-link>
         </template>

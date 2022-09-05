@@ -7,9 +7,9 @@
 # 存放 html 文件的目录名
 DIR='html'
 # 存放备份文件的目录名
-BAK_DIR='html-bak'
+BAK_DIR='bak_html'
 # 解压存放的临时目录
-TMP_DIR='html-restore-tmp'
+TMP_DIR='bak_html_restore_tmp'
 
 set -e
 
@@ -50,7 +50,9 @@ main(){
   echo "sh: tar -xzvf ${file} -C $TMP_DIR"
   tar -xzvf ${file} -C $TMP_DIR
 
+  echo "sh: rm -rf $DIR"
   rm -rf $DIR
+  echo "sh: mv $TMP_DIR/$DIR $DIR"
   mv $TMP_DIR/$DIR $DIR
 
   # 清除临时文件夹

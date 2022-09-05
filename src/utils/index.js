@@ -21,8 +21,7 @@ export function parseTime(time, cFormat) {
   };
   const timeStr = format.replace(/{(y|m|d|h|i|s|a)+}/g, (result, key) => {
     let value = formatObj[key];
-    if (key === 'a')
-      return ['一', '二', '三', '四', '五', '六', '日'][value - 1];
+    if (key === 'a') return ['一', '二', '三', '四', '五', '六', '日'][value - 1];
     if (result.length > 0 && value < 10) {
       value = `0${value}`;
     }
@@ -54,6 +53,15 @@ export function formatTime(time, option) {
   if (option) {
     return parseTime(time, option);
   }
-  return `${d.getMonth() +
-    1}月${d.getDate()}日${d.getHours()}时${d.getMinutes()}分`;
+  return `${d.getMonth() + 1}月${d.getDate()}日${d.getHours()}时${d.getMinutes()}分`;
+}
+
+export function convertMapToParams(m) {
+  const p = new URLSearchParams();
+  if (!m) return p;
+
+  Object.keys(m).forEach(key => {
+    p.append(key, m[key]);
+  });
+  return p;
 }

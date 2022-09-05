@@ -4,29 +4,15 @@
       <div>
         <i class="el-icon-search" />
         <span>筛选搜索</span>
-        <el-button
-          style="float:right"
-          type="primary"
-          size="small"
-          @click="handleSearchList()"
-        >
+        <el-button style="float:right" type="primary" size="small" @click="handleSearchList">
           查询搜索
         </el-button>
-        <el-button
-          style="float:right;margin-right: 15px"
-          size="small"
-          @click="handleResetSearch()"
-        >
+        <el-button style="float:right;margin-right: 15px" size="small" @click="handleResetSearch">
           重置
         </el-button>
       </div>
       <div style="margin-top: 15px">
-        <el-form
-          :inline="true"
-          :model="listQuery"
-          size="small"
-          label-width="140px"
-        >
+        <el-form :inline="true" :model="listQuery" size="small" label-width="140px">
           <el-form-item label="资源名称：">
             <el-input
               v-model="listQuery.nameKeyword"
@@ -64,26 +50,15 @@
     <el-card class="operate-container" shadow="never">
       <i class="el-icon-tickets" />
       <span>数据列表</span>
-      <el-button
-        size="mini"
-        class="btn-add"
-        style="margin-left: 20px"
-        @click="handleAdd()"
-      >
+      <el-button size="mini" class="btn-add" style="margin-left: 20px" @click="handleAdd">
         添加
       </el-button>
-      <el-button size="mini" class="btn-add" @click="handleShowCategory()">
+      <el-button size="mini" class="btn-add" @click="handleShowCategory">
         资源分类
       </el-button>
     </el-card>
     <div class="table-container">
-      <el-table
-        ref="resourceTable"
-        v-loading="listLoading"
-        :data="list"
-        style="width: 100%;"
-        border
-      >
+      <el-table ref="resourceTable" v-loading="listLoading" :data="list" style="width: 100%;">
         <el-table-column label="编号" width="100" align="center">
           <template slot-scope="scope">
             {{ scope.row.id }}
@@ -111,18 +86,10 @@
         </el-table-column>
         <el-table-column label="操作" width="140" align="center">
           <template slot-scope="scope">
-            <el-button
-              size="mini"
-              type="text"
-              @click="handleUpdate(scope.$index, scope.row)"
-            >
+            <el-button size="mini" type="text" @click="handleUpdate(scope.$index, scope.row)">
               编辑
             </el-button>
-            <el-button
-              size="mini"
-              type="text"
-              @click="handleDelete(scope.$index, scope.row)"
-            >
+            <el-button size="mini" type="text" @click="handleDelete(scope.$index, scope.row)">
               删除
             </el-button>
           </template>
@@ -141,17 +108,8 @@
         @current-change="handleCurrentChange"
       />
     </div>
-    <el-dialog
-      :title="isEdit ? '编辑资源' : '添加资源'"
-      :visible.sync="dialogVisible"
-      width="40%"
-    >
-      <el-form
-        ref="resourceForm"
-        :model="resource"
-        label-width="150px"
-        size="small"
-      >
+    <el-dialog :title="isEdit ? '编辑资源' : '添加资源'" :visible.sync="dialogVisible" width="40%">
+      <el-form ref="resourceForm" :model="resource" label-width="150px" size="small">
         <el-form-item label="资源名称：">
           <el-input v-model="resource.name" style="width: 250px" />
         </el-form-item>
@@ -174,19 +132,12 @@
           </el-select>
         </el-form-item>
         <el-form-item label="描述：">
-          <el-input
-            v-model="resource.description"
-            type="textarea"
-            :rows="5"
-            style="width: 250px"
-          />
+          <el-input v-model="resource.description" type="textarea" :rows="5" style="width: 250px" />
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button size="small" @click="dialogVisible = false">取 消</el-button>
-        <el-button type="primary" size="small" @click="handleDialogConfirm()"
-          >确 定</el-button
-        >
+        <el-button type="primary" size="small" @click="handleDialogConfirm">确 定</el-button>
       </span>
     </el-dialog>
   </div>
@@ -197,9 +148,9 @@ import {
   createResource,
   updateResource,
   deleteResource,
-} from '@/api/adminResource';
-import { listAllCate } from '@/api/adminResourceCategory';
-import { formatDate } from '@/utils/date';
+} from '../../../api/adminResource';
+import { listAllCate } from '../../../api/adminResourceCategory';
+import { formatDate } from '../../../utils/date';
 
 const defaultListQuery = {
   pageNum: 1,

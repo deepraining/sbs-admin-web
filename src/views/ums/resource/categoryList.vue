@@ -3,7 +3,7 @@
     <el-card shadow="never" class="operate-container">
       <i class="el-icon-tickets" />
       <span>数据列表</span>
-      <el-button size="mini" class="btn-add" @click="handleAdd()">
+      <el-button size="mini" class="btn-add" @click="handleAdd">
         添加
       </el-button>
     </el-card>
@@ -13,7 +13,6 @@
         v-loading="listLoading"
         :data="list"
         style="width: 100%;"
-        border
       >
         <el-table-column label="编号" width="100" align="center">
           <template slot-scope="scope">
@@ -37,18 +36,10 @@
         </el-table-column>
         <el-table-column label="操作" width="180" align="center">
           <template slot-scope="scope">
-            <el-button
-              size="mini"
-              type="text"
-              @click="handleUpdate(scope.$index, scope.row)"
-            >
+            <el-button size="mini" type="text" @click="handleUpdate(scope.$index, scope.row)">
               编辑
             </el-button>
-            <el-button
-              size="mini"
-              type="text"
-              @click="handleDelete(scope.$index, scope.row)"
-            >
+            <el-button size="mini" type="text" @click="handleDelete(scope.$index, scope.row)">
               删除
             </el-button>
           </template>
@@ -71,9 +62,7 @@
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button size="small" @click="dialogVisible = false">取 消</el-button>
-        <el-button type="primary" size="small" @click="handleDialogConfirm()"
-          >确 定</el-button
-        >
+        <el-button type="primary" size="small" @click="handleDialogConfirm">确 定</el-button>
       </span>
     </el-dialog>
   </div>
@@ -84,8 +73,8 @@ import {
   createResourceCategory,
   updateResourceCategory,
   deleteResourceCategory,
-} from '@/api/adminResourceCategory';
-import { formatDate } from '@/utils/date';
+} from '../../../api/adminResourceCategory';
+import { formatDate } from '../../../utils/date';
 
 const defaultResourceCategory = {
   name: null,
@@ -147,10 +136,7 @@ export default {
         type: 'warning',
       }).then(() => {
         if (this.isEdit) {
-          updateResourceCategory(
-            this.resourceCategory.id,
-            this.resourceCategory
-          ).then(response => {
+          updateResourceCategory(this.resourceCategory.id, this.resourceCategory).then(response => {
             this.$message({
               message: '修改成功！',
               type: 'success',
