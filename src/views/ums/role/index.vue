@@ -22,8 +22,10 @@
             />
           </el-form-item>
 
-          <!-- 只有一个input时，按回车键会刷新页面 -->
-          <el-input style="display: none" />
+          <!-- 只有一个input时，按enter会自动提交 -->
+          <el-form-item v-show="false">
+            <el-input />
+          </el-form-item>
         </el-form>
       </div>
     </el-card>

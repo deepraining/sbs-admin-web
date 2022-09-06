@@ -33,12 +33,6 @@ service.interceptors.response.use(
      */
     const res = response.data;
     if (res.code !== 0) {
-      Message({
-        message: res.message,
-        type: 'error',
-        duration: 3 * 1000,
-      });
-
       // 未登录或 token 已经过期
       if (res.code === 3) {
         MessageBox.confirm('你已被登出，可以取消继续留在该页面，或者重新登录', '确定登出', {
@@ -49,6 +43,12 @@ service.interceptors.response.use(
           store.dispatch('FedLogOut').then(() => {
             window.location.reload(); // 为了重新实例化vue-router对象 避免bug
           });
+        });
+      } else {
+        Message({
+          message: res.message,
+          type: 'error',
+          duration: 3 * 1000,
         });
       }
       return Promise.reject('error');

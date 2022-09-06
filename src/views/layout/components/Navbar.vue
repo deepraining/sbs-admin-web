@@ -8,7 +8,8 @@
     <breadcrumb />
     <el-dropdown class="avatar-container" trigger="click">
       <div class="avatar-wrapper">
-        <img class="user-avatar" :src="avatar" />
+        <img v-if="avatar" class="user-avatar" :src="avatar" />
+        <span v-else>{{ nickname || username }}</span>
         <i class="el-icon-caret-bottom" />
       </div>
       <el-dropdown-menu slot="dropdown" class="user-dropdown">
@@ -36,7 +37,7 @@ export default {
     Hamburger,
   },
   computed: {
-    ...mapGetters(['sidebar', 'avatar']),
+    ...mapGetters(['sidebar', 'avatar', 'username', 'nickname']),
   },
   methods: {
     toggleSideBar() {

@@ -109,6 +109,36 @@ export const asyncRouterMap = [
       },
     ],
   },
+  {
+    path: '/frontUser',
+    component: Layout,
+    redirect: '/frontUser/list',
+    name: 'frontUser',
+    meta: { title: '前端用户', icon: 'angle-right' },
+    children: [
+      {
+        path: 'list',
+        name: 'frontUserList',
+        component: () => import('../views/frontUser/list/index.vue'),
+        meta: { title: '前端用户列表', icon: 'angle-double-right' },
+      },
+    ],
+  },
+  {
+    path: '/article',
+    component: Layout,
+    redirect: '/article/list',
+    name: 'article',
+    meta: { title: '文章', icon: 'angle-right' },
+    children: [
+      {
+        path: 'list',
+        name: 'articleList',
+        component: () => import('../views/article/list/index.vue'),
+        meta: { title: '文章列表', icon: 'angle-double-right' },
+      },
+    ],
+  },
 
   // keep this at the last
   { path: '*', redirect: '/404', hidden: true },

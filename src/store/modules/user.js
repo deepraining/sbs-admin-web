@@ -4,7 +4,8 @@ import { getToken, setToken, removeToken } from '../../utils/auth';
 const user = {
   state: {
     token: getToken(),
-    name: '',
+    username: '',
+    nickname: '',
     avatar: '',
     roles: [],
   },
@@ -13,8 +14,11 @@ const user = {
     SET_TOKEN: (state, token) => {
       state.token = token;
     },
-    SET_NAME: (state, name) => {
-      state.name = name;
+    SET_USERNAME: (state, username) => {
+      state.username = username;
+    },
+    SET_NICKNAME: (state, nickname) => {
+      state.nickname = nickname;
     },
     SET_AVATAR: (state, avatar) => {
       state.avatar = avatar;
@@ -55,7 +59,8 @@ const user = {
             } else {
               reject('getInfo: roles must be a non-null array !');
             }
-            commit('SET_NAME', data.username);
+            commit('SET_USERNAME', data.username);
+            commit('SET_NICKNAME', data.nickname);
             commit('SET_AVATAR', data.avatar);
             resolve(response);
           })
