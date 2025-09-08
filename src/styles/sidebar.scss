@@ -104,3 +104,14 @@
     }
   }
 }
+
+// 解决移动端菜单不能上下滑动的问题
+@media (max-width: 600px) {
+  #app {
+    .sidebar-container {
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: auto;
+    }
+  }
+}
